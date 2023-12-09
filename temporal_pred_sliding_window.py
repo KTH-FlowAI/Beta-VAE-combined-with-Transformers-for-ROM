@@ -25,7 +25,7 @@ device = ("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
 
-vae_name                =   Name_Costum_VAE(VAE_custom,nt= 25999)
+vae_name                =   Name_Costum_VAE(VAE_custom,nt= 26000)
 base_dir                =   os.getcwd()
 base_dir                +=  "/"
 datafile                = base_dir +  '01_Data/u_1_to_26.hdf5'
@@ -44,7 +44,7 @@ if args.model == "easy":
 
   print("#"*30)
   fileID                  =   Make_Transformer_Name(cfg)
-  vae_name                =   Name_Costum_VAE(VAE_custom,nt= 25999)
+  vae_name                =   Name_Costum_VAE(VAE_custom,nt= 26000)
   fileID                  =   "Mean_" + fileID + "_" + vae_name
   print(f"INFO: the fileID is\n{fileID}")
   print("Loading model")
@@ -72,7 +72,7 @@ elif args.model == "self":
   from    utils.NNs.EmbedTransformerEncoder import  EmbedTransformerEncoder
   print("#"*30)
   fileID                  =   Make_Transformer_Name(cfg)
-  vae_name                =   Name_Costum_VAE(VAE_custom,nt= 25999)
+  vae_name                =   Name_Costum_VAE(VAE_custom,nt= 26000)
   fileID                  =   "Mean_" + fileID + "_" + vae_name
   preditor   = EmbedTransformerEncoder(d_input = cfg.in_dim,
                                     d_output= cfg.next_step,

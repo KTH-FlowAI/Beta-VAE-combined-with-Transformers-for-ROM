@@ -30,15 +30,15 @@ lr = args.lr
 es =  args.earlystop
 model_type = args.model
 
-CheckPoint_path = "02_Checkpoints/"
-datafile        = '01_Data/u_1_to_13.hdf5'
+CheckPoint_path = "02_CheckPoints/"
+datafile        = '01_Data/u_1_to_26.hdf5'
 csv_file        = "vae_results.csv"
 
 with h5py.File(datafile, 'r') as f:
   u_keras = f['u'][:]
   nt = int(f['nt'][()])
   nx = int(f['nx'][()])
-  ny = int(f['ny'][()])
+  ny = int(f['nz'][()])
   u_mean = f['mean'][:]
   u_std = f['std'][:]
 
@@ -55,7 +55,7 @@ u_t     = torch.tensor(u_keras)
 u       = TensorDataset(u_t, u_t)
 dl      = DataLoader(u ,batch_size = 1)
 
-fileID  = Name_Costum_VAE(args, 25999)
+fileID  = Name_Costum_VAE(args, 26000)
 print(f"The fileID will be {fileID}")
 
 ckpt    = torch.load(CheckPoint_path +fileID+".pt",map_location=device)

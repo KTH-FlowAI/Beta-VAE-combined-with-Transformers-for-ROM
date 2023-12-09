@@ -1,11 +1,11 @@
 # Towards optimal $\beta$-variational autoencoders combined with transformers for reduced-order modeling of turbulent flows
 
 ## Introduction
-+ The code in this repository features a Python implementation of reduced-order model (ROM) of turbulent flow using $\beta$-variational autoencoders and transformer neural network. More details about the implementation and results from the training are available in ["Towards optimal β-variational autoencoders combined with
+The code in this repository features a Python implementation of reduced-order model (ROM) of turbulent flow using $\beta$-variational autoencoders and transformer neural network. More details about the implementation and results from the training are available in ["Towards optimal β-variational autoencoders combined with
 transformers for reduced-order modeling of turbulent flows", Yuning Wang, Alberto Solera-Rico, Carlos Sanmiguel Vila and Ricardo Vinuesa](https://doi.org/10.1016/j.ijheatfluidflow.2023.109254)
 
-
-+ We provide 
+## Data availabilty
+We provide the original data with 10,000 snapshots and 26,000 snapshots in [OneDrive](https://kth-my.sharepoint.com/:f:/g/personal/yuningw_ug_kth_se/Ei5lrpgPJBJGrxByXtX1qpgBjTQVggi7pd0sluaGz6-IUg?e=8l7Y6k). We also provide the pre-trained models of $\beta$-VAE, transformers and LSTM in this repository. Part of the obtined results such as temporal and spatial modes.
 
 ## Training and inference
 ### Modal decomposition: $\beta$-VAE 

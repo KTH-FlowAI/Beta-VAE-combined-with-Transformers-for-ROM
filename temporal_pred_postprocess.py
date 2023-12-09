@@ -155,7 +155,7 @@ test_data   =   test_mean
 print("#"*30 )
 print("The prediction of snapshot")
 
-fileVAE  = Name_Costum_VAE(VAE_custom, 25999)
+fileVAE  = Name_Costum_VAE(VAE_custom, 26000)
 print(f"The fileID will be {fileID}")
 ckpt     = torch.load(CheckPoint_path  +fileVAE+".pt",map_location=device)
 model    = BetaVAE(    

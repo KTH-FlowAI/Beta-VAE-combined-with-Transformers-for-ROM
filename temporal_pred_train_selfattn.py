@@ -23,7 +23,7 @@ device = ("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
 fileID                  =   Make_Transformer_Name(cfg)
-vae_name                =   Name_Costum_VAE(VAE_custom,nt= 25999)
+vae_name                =   Name_Costum_VAE(VAE_custom,nt= 26000)
 base_dir                =  "/mimer/NOBACKUP/groups/deepmechalvis/yuningw/Cylinder_ROM/"
 checkpoint_save_path    = base_dir +  "06_ROM/OnlyPredictor/CheckPoints/"
 modes_data_path         = base_dir +  "03_Mode/"

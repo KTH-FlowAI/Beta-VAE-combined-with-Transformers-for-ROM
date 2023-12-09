@@ -23,7 +23,7 @@ device = ("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
 fileID                  =   Make_Transformer_Name(cfg)
-vae_name                =   Name_Costum_VAE(VAE_custom,nt= 25999)
+vae_name                =   Name_Costum_VAE(VAE_custom,nt= 26000)
 checkpoint_save_path    =   "06_ROM/OnlyPredictor/CheckPoints/"
 modes_data_path         =   "03_Mode/"
 save_fig_pred           =   f"04_Figs/vis_pred/dim{VAE_custom.latent_dim}/"
