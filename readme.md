@@ -5,7 +5,7 @@ The code in this repository features a Python implementation of reduced-order mo
 transformers for reduced-order modeling of turbulent flows", Yuning Wang, Alberto Solera-Rico, Carlos Sanmiguel Vila and Ricardo Vinuesa](https://doi.org/10.1016/j.ijheatfluidflow.2023.109254)
 
 ## Data availabilty
-We provide the original data with 10,000 snapshots and 26,000 snapshots in [OneDrive](https://kth-my.sharepoint.com/:f:/g/personal/yuningw_ug_kth_se/Ei5lrpgPJBJGrxByXtX1qpgBjTQVggi7pd0sluaGz6-IUg?e=8l7Y6k). We also provide the pre-trained models of $\beta$-VAE, transformers and LSTM in this repository. Part of the obtined results such as temporal and spatial modes.
+We share the original data with 10,000 snapshots and 26,000 snapshots in [OneDrive](https://kth-my.sharepoint.com/:f:/g/personal/yuningw_ug_kth_se/Ei5lrpgPJBJGrxByXtX1qpgBjTQVggi7pd0sluaGz6-IUg?e=8l7Y6k). We also provide the pre-trained models of $\beta$-VAE, transformers and LSTM in this repository. The obtined results such as temporal and spatial modes are available.
 
 ## Training and inference
 ### Modal decomposition: $\beta$-VAE 
@@ -26,7 +26,7 @@ We provide the original data with 10,000 snapshots and 26,000 snapshots in [OneD
 
         python temporal_pred_train_selfattn.py
 
-+ For post-processing: 
++ For post-processing, pleas run: 
 
         python temporal_pred_postprocess.py 
 

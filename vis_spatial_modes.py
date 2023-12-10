@@ -79,8 +79,8 @@ for vae_type in vae_types:
     x = x[:192, :96]
     y = y[:192, :96]
 
-    xb = np.array([-0.15, -0.15, 0.15, 0.15, -0.15])
-    yb = np.array([-0.15, 0.15, 0.15, -0.15, -0.15])
+    xb = np.array([-0.125, -0.125, 0.125, 0.125, -0.125])
+    yb = np.array([-0.125, 0.125, 0.125, -0.125, -0.125])
 
     fig,ax = plt.subplots(latent_dim,len(modes),
                             sharex=True,sharey=True,
