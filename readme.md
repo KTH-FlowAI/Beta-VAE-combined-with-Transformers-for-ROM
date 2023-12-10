@@ -11,15 +11,15 @@ We share the original data with 10,000 snapshots and 26,000 snapshots in [OneDri
 ### Modal decomposition: $\beta$-VAE 
 + To train $\beta$-VAE, please run:
 
-        python vae_train.py
+        python beta_vae_train.py
 
 + For post-processing, please run:
 
-        python vae_postprocess.py
+        python beta_vae_postprocess.py
 
 + For ranking the $\beta$-VAE mode, please run:
 
-        python vae_rankModes.py
+        python beta_vae_rankModes.py
 
 ### Temporal-dynamics prediction: Transformer / LSTM
 + To train a self-attention-based transformer, please run: 
@@ -44,18 +44,18 @@ We share the original data with 10,000 snapshots and 26,000 snapshots in [OneDri
 ### Visualisation 
 We offer the scripts and data for reproducing the figures in the paper. For instance, to visualise the results of parametric studies, please run: 
 
-        python fig_lines.py
+        python visual_lines.py
 
 ## Repository structure
 + **01_Data**           : The flow data of the streamwise velocity components of flow around square cylinder. Please find more details in the paper: ["Causality analysis of large-scale structures in the flow around a wall-mounted square cylinder", Álvaro Martínez-Sánchez, Esteban López, Soledad Le Clainche, Adrián Lozano-Durán, Ankit Srivastava, Ricardo Vinuesa](https://doi.org/10.1017/jfm.2023.423)
 
-+ **02_Checkpoints**    : Save the $\beta$-VAE model, loss evolution and computation time in *.pt* format
++ **02_Checkpoints**    : Store the $\beta$-VAE model, loss evolution and computation time in *.pt* format
 
-+ **03_Mode**           : Save the temporal mode in Latent Space
++ **03_Mode**           : Store the obtained  $\beta$-VAE latent-space modes.
 
-+ **04_Figs**           : The figures and visualisation
++ **04_Figs**           : The figures and visualisation.
 
-+ **05_Pred**           : The data of predictions
++ **05_Pred**           : The data of temporal-dynamics predictions in latent space.
 
 + **06_ROM**            : The time-series prediction for 
 building the Reduce-order model (ROM)
@@ -66,4 +66,4 @@ building the Reduce-order model (ROM)
 
 + **csvFile**          : The csv files to record $\beta$-VAE performance, where *small* denotes $Arch1$ and *large* denotes the $Arch2$, respectively. 
 
-+ **utils**: The functions and architectures used in this project
++ **utils**: The functions and architectures used in the scripts.
