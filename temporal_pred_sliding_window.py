@@ -32,10 +32,10 @@ datafile                = base_dir +  '01_Data/u_1_to_26.hdf5'
 checkpoint_save_path    = base_dir +  "06_ROM/OnlyPredictor/CheckPoints/"
 CheckPoint_path         = base_dir +  "02_Checkpoints/"
 modes_data_path         = base_dir +  "03_Mode/"
-save_fig_pred           = base_dir +  f"04_Figs/vis_pred/dim{VAE_custom.latent_dim}/"
+save_fig_pred           = base_dir +  f"04_Figs/vis_pred/"
 save_window_pred        = base_dir +  f"04_Figs/vis_pred/sliding_window/"
 save_snap_pred          = base_dir +  f"04_Figs/vis_pred/snapshots/"
-save_data_pred          = base_dir +  f"06_Preds/"
+save_data_pred          = base_dir +  f"05_Pred/"
 
 
 if args.model == "easy":

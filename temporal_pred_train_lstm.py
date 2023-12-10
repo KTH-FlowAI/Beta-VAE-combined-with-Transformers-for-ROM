@@ -25,11 +25,12 @@ print(f"Using device: {device}")
 
 fileID                  =   Make_LSTM_Name(cfg)
 vae_name                =   Name_Costum_VAE(VAE_custom,nt=26000)
-base_dir                =  "/mimer/NOBACKUP/groups/deepmechalvis/yuningw/Cylinder_ROM/"
-checkpoint_save_path    = base_dir +  "06_ROM/OnlyPredictor/CheckPoints/"
+base_dir                =   os.getcwd()
+base_dir                +=  "/"
+checkpoint_save_path    = base_dir +  "06_ROM/CheckPoints/"
 modes_data_path         = base_dir +  "03_Mode/"
-save_fig_pred           = base_dir +  f"04_Figs/vis_pred/dim{VAE_custom.latent_dim}/"
-save_data_pred          = base_dir +  f"06_Preds/dim{VAE_custom.latent_dim}/"
+save_fig_pred           = base_dir +  f"04_Figs/vis_pred/"
+save_data_pred          = base_dir +  f"05_Pred/"
 fileID                  = "Mean_" +  fileID + "_" + vae_name 
 print(f"INFO: the fileID is\n{fileID}")
 

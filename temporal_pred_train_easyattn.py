@@ -24,11 +24,13 @@ print(f"Using device: {device}")
 
 fileID                  =   Make_Transformer_Name(cfg)
 vae_name                =   Name_Costum_VAE(VAE_custom,nt= 26000)
-checkpoint_save_path    =   "06_ROM/OnlyPredictor/CheckPoints/"
-modes_data_path         =   "03_Mode/"
-save_fig_pred           =   f"04_Figs/vis_pred/dim{VAE_custom.latent_dim}/"
-save_data_pred          =   f"06_Preds/dim{VAE_custom.latent_dim}/"
-fileID                  = "Mean_" +  fileID + "_" + vae_name 
+base_dir                =   os.getcwd()
+base_dir                +=  "/"
+checkpoint_save_path    =   base_dir + "06_ROM/CheckPoints/"
+modes_data_path         =   base_dir + "03_Mode/"
+save_fig_pred           =   base_dir + f"04_Figs/vis_pred/"
+save_data_pred          =   base_dir + f"06_Preds/"
+fileID                  =   "Mean_" +  fileID + "_" + vae_name 
 print(f"INFO: the fileID is\n{fileID}")
 
 d           =   np.load(modes_data_path + vae_name + "modes.npz")

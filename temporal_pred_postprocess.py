@@ -31,15 +31,17 @@ vae_name                =   Name_Costum_VAE(VAE_custom,nt= 25999)
 base_dir                =   os.getcwd()
 base_dir                +=  "/"
 datafile                = base_dir +  '01_Data/u_1_to_26.hdf5'
-checkpoint_save_path    = base_dir +  "06_ROM/OnlyPredictor/CheckPoints/"
+checkpoint_save_path    = base_dir +  "06_ROM/CheckPoints/"
 CheckPoint_path         = base_dir +  "02_Checkpoints/"
 modes_data_path         = base_dir +  "03_Mode/"
-save_fig_pred           = base_dir +  f"04_Figs/vis_pred/dim{VAE_custom.latent_dim}/"
+save_fig_pred           = base_dir +  f"04_Figs/vis_pred/"
 save_window_pred        = base_dir +  f"04_Figs/vis_pred/sliding_window/"
 save_snap_pred          = base_dir +  f"04_Figs/vis_pred/snapshots/"
-save_data_pred          = base_dir +  f"06_Preds/dim{VAE_custom.latent_dim}/"
-save_fig_chaotic        = base_dir +  f"04_Figs/vis_pred/chaotic/"
+save_data_pred          = base_dir +  f"05_Pred/"
 
+################
+## Load trained model
+################
 
 if args.model == "easy":
   from    utils.configs       import  EasyAttn_config as cfg, VAE_custom, Name_Costum_VAE, Make_Transformer_Name
@@ -119,6 +121,12 @@ else:
   print("ERROR: There is no type match!")
   quit()
 
+
+################
+## Load data and beta-VAE
+################
+
+
 print("#"*30)
 print(f"Loading data")
 with h5py.File(datafile, 'r') as f:
@@ -172,6 +180,13 @@ model.load_state_dict(ckpt["model"])
 model.to(device)
 model.eval()
 print("INFO: Model has been correctly loaded")
+
+
+################
+## Temporal Prediction in latent space and physical space
+################
+
+
 pred_mean       = make_Prediction(test_data, preditor,device,
                         in_dim= cfg.in_dim, 
                         next_step= cfg.next_step)
@@ -190,6 +205,7 @@ for i in range(pred_mean.shape[0]):
     Physical_prediction.append(snap.detach().cpu().numpy())
     z_sample.append(z_sample_.detach().cpu().numpy())
 
+
 Physical_prediction = np.concatenate(Physical_prediction,0)
 
 
@@ -200,9 +216,10 @@ np.savez_compressed(save_data_pred +"Pred_Data_" + fileID + ".npz",
                     Ntrain  = Ntrain
                     )
 
-###
-## Check the snapshot 
-####
+################
+## Visualise the results
+################
+
 
 Nx, Ny  =   192, 96 
 x       =   np.linspace(-1, 5, Nx)
@@ -259,7 +276,6 @@ for i, no_eval in enumerate(No_eval):
   ax[i, 1].plot(xb, yb, c = 'k', lw = 1, zorder = 5)
   ax[i,0].set_title(f"ROM No.{128 + no_eval}\n" + r"$E_k$" + f" = {np.round( E_k,decimals=2)}"+ r"$\%$")
   ax[i,1].set_title(f"DNS No.{128 + no_eval}")
-  # ax[2].set_title("Absolute Error")
 plt.subplots_adjust(wspace=0.05)
 cax1 = fig.add_axes([ax[-1,0].get_position().x0,
 
